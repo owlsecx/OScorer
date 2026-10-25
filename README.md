@@ -18,13 +18,18 @@
 
 ## 📌 Overview
 
-Risk scoring for PowerShell obfuscation techniques
+OScorer is a risk-scoring tool for PowerShell obfuscation techniques. It analyses PowerShell script files or command strings, detects obfuscation indicators, and assigns a risk score. It can scan directories recursively and save JSON reports.
 
 ---
 
 ## ✨ Features
 
-- Blue-team forensic scoring of PowerShell obfuscation/evasion (distinct from ORisk USB threat scores)
+- Analyses .ps1 script files or inline PowerShell command strings
+- Risk scoring for common PowerShell obfuscation techniques
+- Recursive batch scanning of a directory
+- Configurable minimum score threshold for saving reports
+- JSON report and alert-log output to a chosen directory
+- Offline sandboxed self-test
 
 ---
 
@@ -38,7 +43,10 @@ Risk scoring for PowerShell obfuscation techniques
 ## 🚀 Usage
 
 ```bash
-./OScorer
+./OScorer -f script.ps1
+./OScorer -c "IEX (New-Object Net.WebClient).DownloadString('...')"
+./OScorer --batch-dir ./scripts --min-score 70
+./OScorer --help
 ```
 
 ---
